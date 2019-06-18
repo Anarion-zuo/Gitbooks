@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/GitBook_Algorithm" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitBook_ML" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Gitbook_Math" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Gitbook_Phy" vcs="Git" />
+  </component>
+</project>
