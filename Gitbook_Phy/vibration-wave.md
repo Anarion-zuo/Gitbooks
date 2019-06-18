@@ -139,7 +139,7 @@ The objects are moving with same velocity.
 
 The frequency is 0. 
 
-#### Superposition Principle
+#### Normal Mode
 
 In general, for mode A:
 $$
@@ -210,3 +210,4 @@ x_1(t)=\alpha\cos(w_1t+\phi_1)+\beta\cos(w_2t+\phi_2),x_2(t)=\alpha\cos(w_1t+\ph
 $$
 There are 4 free parameters $\alpha,\phi_1,\beta,\phi_2$ and the angular frequency can be computed $w_1=\sqrt{g/l},w=\sqrt{g/l+2k/m}$.
 
+The solution is the superposition of 2 normal mode of frequency $w_1,w_2$. For any other systems, once we have the normal mode, we can have the exact prediction of motion.
