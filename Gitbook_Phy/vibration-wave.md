@@ -139,7 +139,11 @@ The objects are moving with same velocity.
 
 The frequency is 0. 
 
-#### Normal Mode
+## Normal Mode
+
+### Solutions and Basic Observations
+
+#### Homogeneous
 
 In general, for mode A:
 $$
@@ -208,6 +212,71 @@ The solution, in general, can be written in the form of:
 $$
 x_1(t)=\alpha\cos(w_1t+\phi_1)+\beta\cos(w_2t+\phi_2),x_2(t)=\alpha\cos(w_1t+\phi_1)-\beta\cos(w_2t+\phi_2)
 $$
-There are 4 free parameters $\alpha,\phi_1,\beta,\phi_2$ and the angular frequency can be computed $w_1=\sqrt{g/l},w=\sqrt{g/l+2k/m}$.
+There are 4 free parameters $\alpha,\phi_1,\beta,\phi_2$ and the angular frequency can be computed $w_1=\sqrt{g/l},w_2=\sqrt{g/l+2k/m}$.
 
-The solution is the superposition of 2 normal mode of frequency $w_1,w_2$. For any other systems, once we have the normal mode, we can have the exact prediction of motion.
+The solution is the superposition of 2 normal mode of frequency $w_1,w_2$. For any other systems, once we have the normal mode, we can have the exact prediction of motion. One of the mode is that 2 objects oscillating in the same frequency, and 2 as 1. The other is that 2 objects oscillates with opposite phase such that a harmonic motion is guaranteed for both objects.
+
+For other systems with different numbers of objects, we can always find normal modes through tough initial conditions, such that all objects are in harmonic state. The rest of the motion is the linear combination of the normal modes, determined by the initial state.
+
+#### Driven Normal Mode
+
+If we apply the driving frequency $w_d$, the static solution of motion would be of frequency $w_d$.
+$$
+\ddot Z+M^{-1}KZ=M^{-1}Fe^{iw_dt},Z=Be^{iw_dt}
+$$
+Simplify it:
+$$
+(-w_d^2I+M^{-1}K)B=M^{-1}F
+$$
+where $F$ is the amplitude of forces applied to the 2 objects respectively, and $B$ is the amplitude of the motion, unknown.
+
+Write the equation with new notations:
+$$
+EB=D
+$$
+Solve:
+$$
+B_1=\frac{\frac{F_0}{m}(\frac{k}{m}+\frac{g}{l}-w_d^2)}{(w_d^2-w_1^2)(w_d^2-w_2^2)},B_2=\frac{\frac{F_0k}{m^2}}{(w_d^2-w_1^2)(w_d^2-w_2^2)}
+$$
+Take the ratio:
+$$
+\frac{B_1}{B_2}=\frac{\frac{k}{m}+\frac{g}{l}-w_d^2}{\frac{k}{m}}
+$$
+Set $w_d=w_1$:
+$$
+\frac{B_1}{B_2}=+1
+$$
+Set $w_d=w_2$:
+$$
+\frac{B_1}{B_2}=-1
+$$
+When set the driving frequency to be one of the normal frequency of the system, the oscillation would be amplified extremely, behaving in the way of the corresponding normal mode. Simply, apply the frequency and the normal mode pops out. For this example, when the driving frequency is around $w_1$, the system behaves like 2 objects moving with the same frequency and phase harmonically, while the other choice of frequency makes 2 object oscillating in opposite phase.
+
+The final solution is the homogeneous solution plus the particular solution, determined by the driving force. In reality, there is always some damping, causing the homogeneous solution to disappear and the particular solution remains.
+
+### Symmetry
+
+If the system is symmetric, the normal modes are symmetric to each other.
+
+![1560949888068](assets/1560949888068.png)
+
+A displacement in $x_2$ can be a reflection of the displacement in $-x_1$. We know for sure that there are 2 solutions such that:
+$$
+X(t)=\begin{pmatrix}x_1(t)\\x_2(t)\end{pmatrix},\tilde X(t)=\begin{pmatrix}-x_2(t)\\-x_1(t)\end{pmatrix}
+$$
+In other words:
+$$
+S=\begin{pmatrix}0&-1\\-1&0\end{pmatrix},\tilde X(t)=SX(t)
+$$
+For the equation of motion:
+$$
+\ddot X(t)=-M^{-1}KX(t)\Rightarrow S\ddot X(t)=-SM^{-1}KX(t)
+$$
+By the property of symmetric matrix:
+$$
+S\ddot X(t)=-M^{-1}KSX(t),\ddot{\tilde X}(t)=-M^{-1}K\tilde X(t)
+$$
+Namely, the 2 matrices commute with each other:
+$$
+[A,B]=AB-BA=0,[S,M^{-1}K]=0
+$$
