@@ -337,7 +337,17 @@ Assuming that there exists $\beta$ as eigenvalue of the matrix $S$, there is suc
 $$
 \beta A_j=A_{j+1}\Rightarrow A_j=\beta^j,A_0=1
 $$
+For the eigenvalue to make sense in the real physical world, we consider only that $|\beta|=1$, where no end would exceed infinity. In complex cases, $\beta=e^{iwt}$.
+
 Explicitly write down the relation of amplitude among $A$s:
 $$
 M^{-1}KA=w^2A\Rightarrow-\frac{k}{m}A_{j-1}+\frac{2k}{m}A_j-\frac{k}{m}A_{j+1}=w^2A_j
+$$
+Define natural frequency:
+$$
+w^2_0=\frac{k}{m},w^2A_j=w_0^2(-A_{j-1}+2A_j-A_{j+1})
+$$
+Plug $A_j$ in:
+$$
+w^2=w_0^2(-\frac{1}{\beta}+2-\beta)=w_0^2(2-(e^{ika}+e^{-ika}))=w_0^2(1-\cos ka)
 $$
