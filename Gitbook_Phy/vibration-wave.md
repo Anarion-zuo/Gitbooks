@@ -308,3 +308,36 @@ $$
 M^{-1}KA\propto A\Rightarrow M^{-1}KA=w^2A
 $$
 where $w$ is some constant, able to be solved.
+
+## Infinite Number of Objects
+
+![1561036716388](assets/1561036716388.png)
+
+Equation of motion:
+$$
+\ddot X=M^{-1}KX
+$$
+Shift all objects by one position to the right:
+$$
+A'=SA=\beta A
+$$
+where the matrix $S$ is:
+$$
+S=\begin{pmatrix}
+0&1&0&...&...\\
+0&0&1&0&...\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+\end{pmatrix}
+$$
+The behavior of matrix $A$ is:
+$$
+A=\begin{pmatrix}\vdots\\A_j\\A_{j+1}\\A_{j+2}\\\vdots\end{pmatrix}\Rightarrow A'=\begin{pmatrix}\vdots\\A_{j+1}\\A_{j+2}\\A_{j+3}\\\vdots\end{pmatrix}
+$$
+Assuming that there exists $\beta$ as eigenvalue of the matrix $S$, there is such relation between the components:
+$$
+\beta A_j=A_{j+1}\Rightarrow A_j=\beta^j,A_0=1
+$$
+Explicitly write down the relation of amplitude among $A$s:
+$$
+M^{-1}KA=w^2A\Rightarrow-\frac{k}{m}A_{j-1}+\frac{2k}{m}A_j-\frac{k}{m}A_{j+1}=w^2A_j
+$$
