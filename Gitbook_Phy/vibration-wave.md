@@ -280,3 +280,31 @@ Namely, the 2 matrices commute with each other:
 $$
 [A,B]=AB-BA=0,[S,M^{-1}K]=0
 $$
+Suppose the solution of object 1 is:
+$$
+X(t)=A^{(1)}\cos(w_1t)
+$$
+
+The Symmetric motion is:
+$$
+\tilde X(t)\propto A^{(1)}\cos(w_1t)
+$$
+Multiply by $S$:
+$$
+SX(t)=SA^{(1)}\cos(w_1t)\propto A^{(1)}\cos(w_1t)\Rightarrow SA^{(1)}\propto A^{(1)},SA^{(1)}=\beta A^{(1)}
+$$
+Therefore, the amplitude matrix consists of eigenvectors of the symmetric matrix $S$.
+
+If we have matrices such that:
+$$
+SA=\beta A,[S,M^{-1}K]=0
+$$
+When we solve the eigen problem for matrix $A$, we also solve the problem for $K$.
+$$
+SM^{-1}KA=M^{-1}KSA=\beta M^{-1}KA
+$$
+$M^{-1}KA$ also consists of eigenvectors of $S$, sharing the same eigenvalues. If the 2 eigenvalues of the matrix $S$ is computed:
+$$
+M^{-1}KA\propto A\Rightarrow M^{-1}KA=w^2A
+$$
+where $w$ is some constant, able to be solved.
