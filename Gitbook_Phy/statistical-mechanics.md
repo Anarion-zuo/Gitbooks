@@ -688,7 +688,7 @@ $$
 \ln p_i=-(1+\alpha)-\beta i
 $$
 
-### Gibbs Ensemble
+### Liouville’s Theorem
 
 For a particular macro state, there may be lots of kinds of micro states corresponding to it. We are going to try to establish a map showing the same micro states corresponding to the same macro state. Consider $N$ copies of the same macro state $M$.
 
@@ -752,7 +752,7 @@ $$
 $$
 For the density of the system:
 $$
-\frac{d\rho}{dt}=\frac{\partial\rho}{\partial t}+\sum_\alpha\frac{\partial\rho}{\partial p_\alpha}((-\frac{\partial H}{\partial q_\alpha})+\frac{\partial\rho}{\partial q_\alpha}(\frac{\partial H}{\partial p_\alpha}))
+\frac{d\rho}{dt}=\frac{\partial\rho}{\partial t}+\sum_\alpha(\frac{\partial\rho}{\partial p_\alpha}(-\frac{\partial H}{\partial q_\alpha})+\frac{\partial\rho}{\partial q_\alpha}(\frac{\partial H}{\partial p_\alpha}))
 $$
 We write the equation in a new notation:
 $$
@@ -793,16 +793,21 @@ $$
 $$
 To insure this, we can make the density of the system to be a direct function of its Hamiltonian, $\rho(H)$.
 
-One of the applications of the density function is that we may look at the density for only one particle.
+### Particle Density
+
+One of the applications of the density function is that we may look at the density for only one particle. The one particle density is the expectation of finding particle at position $\vec q$ and momentum $\vec p$.
 $$
-\begin{align*}
-&f_1(\vec p,\vec q,t)\\
-=&<\sum_{i=1}^N\delta^3(\vec q_i-\vec q)\delta^3(\vec p_i-\vec p)>\\
-=&N\int\prod_{i=2}^Nd^3p_id^3q_i\rho(\vec p_1=\vec p,\vec q_1=\vec q,\vec p_2,\vec q_2...,\vec p_N,\vec q_N,t)\\
-=&N\rho_1(\vec p_1-\vec p,\vec q_1-\vec q,t)
-\end{align*}
+f_1(\vec p,\vec q,t)=<\sum_{i=1}^N\delta^3(\vec q_i-\vec q)\delta^3(\vec p_i-\vec p)>
 $$
-The one particle density is defined to be this. Namely, it integrate through all other particles except the one we are interested at $(\vec p, \vec q)$. Similarly, we can also define the 2 or more particle density.
+Suppose the first term of the delta functions is 1. The expectation is:
+$$
+<\delta^3(\vec q_1-\vec q)\delta^3(\vec p_1-\vec p)>=\int dV_i\rho_{\vec p_1,\vec q_1}=\int\prod_{i=2}^Nd^3p_id^3q_i\rho(\vec p_1=\vec p,\vec q_1=\vec q,\vec p_2,\vec q_2...,\vec p_N,\vec q_N,t)
+$$
+Suppose other terms of the summation of the delta function are the same, due to the symmetry with respect to permuting the particles. The final result is:
+$$
+f_1=N\int\prod_{i=2}^Nd^3p_id^3q_i\rho(\vec p_1=\vec p,\vec q_1=\vec q,\vec p_2,\vec q_2...,\vec p_N,\vec q_N,t)
+$$
+Similarly, we can also define the 2 or more particle density.
 $$
 \begin{align*}
 &f_2(\vec p_1,\vec q_1,\vec p_2,\vec q_2,t)\\
@@ -816,10 +821,25 @@ f_s(\vec p_1,\vec q_s,t)=\frac{N!}{(N-s)!}\rho_s(\vec p_1,...,\vec q_s,t)
 $$
 For the Hamiltonian in the system, we consider the single particles, pairs of particles , and more.
 $$
-H=\sum_i(\frac{P_i^2}{2m_i}+U(\vec q_i))+\frac{1}{2}\sum_{i\ne j}U(\vec q_i-\vec q_j)+...
+H=\sum_i(\frac{P_i^2}{2m_i}+U(\vec q_i))+\frac{1}{2}\sum_{i\ne j}V(\vec q_i-\vec q_j)+...
 $$
 This is used when computing the derivative of $s$-particle density with respect to time.
 $$
 \frac{\partial f_s}{\partial t}=\frac{N!}{(N-s)!}\int\prod_{i=s+1}^NdV_i\frac{\partial\rho}{\partial t}
 $$
-The Hamiltonian can be separated into 3 parts.
+Express Hamiltonian:
+$$
+H=\sum_{i=1}^N[\frac{p_i^2}{2m}+U(\vec q_i)]+\frac{1}{2}\sum_{i\ne j}V(\vec q_i-\vec q_j)+...
+$$
+The Hamiltonian constists of terms associated with one body, 2 bodies and more, which are not so important. For each term, there is the presence of potential energy between the particles. The Hamiltonian can be separated into 3 parts, donated by the integrated particles, unintegrated particles, and the rest. The (un-)integrated is defined by the previous computation about particle density. The integrated are the particles are the ones not counted into the density computation, or referred to as “other particles” except for the ones in the delta function.
+
+Not integrating:
+$$
+H_{S}=\sum_{m=1}^S[\frac{p_m^2}{2m}+U(\vec q_m)]+\frac{1}{2}\sum_{m\ne n}U(\vec q_m-\vec q_n)
+$$
+Integrating:
+$$
+H_{N-S}=\sum_{j=S+1}^N[\frac{p_i^2}{2m}+U(\vec q_j)]+\frac{1}{2}\sum_{j\ne k}V(\vec q_j-\vec q_k)
+$$
+The remaining term 
+

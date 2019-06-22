@@ -382,3 +382,12 @@ y_j=Re(A_je^{i(wt+\phi)})
 $$
 ![1561175316572](assets/1561175316572.png)
 
+The eigenvectors of $M^{-1}K$ are given by $M^{-1}KA$, for $A$ is the eigenvector of $S$. Solve for $M^{-1}KA=w^2A$ and we have the natural frequencies of the normal modes.
+$$
+w^2A_j=\frac{T}{ma}(-A_{j-1}+2A_j-A_{j+1})=\frac{T}{ma}(-e^{-ika}+2-e^{ika}),w^2=\frac{2T}{ma}(1-\cos ka)
+$$
+Rewrite the expression of $w^2$:
+$$
+w^2=2w_0^2(1-\cos ka)=4w_0^2\sin^2\frac{ka}{2},w_0^2=\frac{T}{ma}
+$$
+Thus, $w$ is a function of $k$.

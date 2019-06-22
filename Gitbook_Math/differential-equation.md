@@ -388,7 +388,7 @@ Take the example of a square signal:
 $$
 f(t)=\frac{1}{2}+(-\frac{1}{2})^\left\lfloor t+1\right\rfloor
 $$
-In order to save some work, use a simple transformation to make $f$ a odd function.
+In order to save some work, use a simple transformation to make $f$ an odd function.
 $$
 f(t)\leftarrow f(t)-\frac{1}{2}=(-\frac{1}{2})^\left\lfloor t+1\right\rfloor-\frac{1}{2}
 $$
