@@ -10,7 +10,7 @@
 
 ### Toy: Peak Finding
 
-* The problem is about finding peaks if exists in an array with a certain length. Peak is defined as: For array a[], position i is a peak if and only if $a[i-1] \le a[i]$ and $a[i+1]\le a[i]​$. For the cases of edges, only compare the single side.
+* The problem is about finding peaks if exists in an array with a certain length. Peak is defined as: For array a[], position i is a peak if and only if $a[i-1] \le a[i]$ and $a[i+1]\le a[i]$. For the cases of edges, only compare the single side.
 
 
 By looking at the previous and latter position, peaks can be detected. 
@@ -52,7 +52,7 @@ $$
 
 #### Argue that peaks have to exist.
 
-Suppose that a certain array, 1D or 2D, does not have a peak, which means there is no $$i,j$$ for $$\forall pi \in {f(i-1,j),f(i,j-1),f(i+1,j),f(i,j+1), f(i,j)}, pi \le f(i,j)​$$ .
+Suppose that a certain array, 1D or 2D, does not have a peak, which means there is no $$i,j$$ for $$\forall pi \in {f(i-1,j),f(i,j-1),f(i+1,j),f(i,j+1), f(i,j)}, pi \le f(i,j)$$ .
 
 ## Models of Computation, Document Distance
 
@@ -122,7 +122,7 @@ Suppose that a certain array, 1D or 2D, does not have a peak, which means there 
   * Swap copies;
   * Swap pointers;
   * ...
-* Given that compare cost is much larger than swap cost, the worst case scenario is as mentioned above. To actually make the given assumption happen, instead of swapping the object through the sorted array, do a binary search on the sorted array and find the position quickly. After finding the position, in a array structure where memory is stored continuously, the insert operation is not constant time, going back to the case of $$\theta (n^2)​$$ . There is nothing more that we can do to improve this algorithm.
+* Given that compare cost is much larger than swap cost, the worst case scenario is as mentioned above. To actually make the given assumption happen, instead of swapping the object through the sorted array, do a binary search on the sorted array and find the position quickly. After finding the position, in a array structure where memory is stored continuously, the insert operation is not constant time, going back to the case of $$\theta (n^2)$$ . There is nothing more that we can do to improve this algorithm.
 
 ### Merge Sort
 
@@ -133,7 +133,7 @@ Suppose that a certain array, 1D or 2D, does not have a peak, which means there 
   T(n) = C_1 + 2T(\frac{n}{2}) + C_2n = \theta(n\log_2n)
   $$
 
-* Merge Sort algorithm needs $\theta (n)​$ auxiliary space, which makes it not a in-place sorting algorithm. It is possible that merge sort could happen in-place but not practical.
+* Merge Sort algorithm needs $\theta (n)$ auxiliary space, which makes it not a in-place sorting algorithm. It is possible that merge sort could happen in-place but not practical.
 
 
 ### Heap
@@ -161,7 +161,7 @@ Suppose that a certain array, 1D or 2D, does not have a peak, which means there 
 
   * In every insert operation throughout the build process, put the node to the bottom and heapify to correct the mistake.
   * Time complexity:
-    * Observe max\_heapify takes constant time for nodes that are above the leaves and in general $O(l)​$ time for nodes that are $l​$ levels above the leaves.
+    * Observe max\_heapify takes constant time for nodes that are above the leaves and in general $O(l)$ time for nodes that are $l$ levels above the leaves.
     * $\frac{n}{4}$ nodes with level 1, $\frac{n}{8}$ with level 2, ..., 1 node in level $\log_2n$.
 
 #### **Problem: Airport with a Single Runway**
@@ -210,7 +210,7 @@ Add another attribute to every node, which starts at 0 and add by 1 each time an
 
 ### Heights
 
-Note: $$Height = Longest\text{ } Path\text{ } to\text{ } Bottom​$$ If:
+Note: $$Height = Longest\text{ } Path\text{ } to\text{ } Bottom$$ If:
 
 $$
 Height = \log_2n
@@ -226,7 +226,7 @@ $$
 
 ### AVL
 
-* Require heights of left and right children of every node to differ by at most $\pm 1​$. Therefore AVL Trees are always balanced.
+* Require heights of left and right children of every node to differ by at most $\pm 1$. Therefore AVL Trees are always balanced.
 * The worst case is when right subtree has height 1 more than left for every node.
 
 #### **Property to be Maintained**
@@ -295,7 +295,7 @@ The operation can only bec applied to AVL trees and stated as follows. For a giv
 
 #### Radix Sort
 
-* Imagine each integer as base b. The number of digits, d, is $\log\_bk​$, as k is the digit's index required.
+* Imagine each integer as base b. The number of digits, d, is $\log\_bk$, as k is the digit's index required.
 * Sort integers by least significant digit,
 * ...
 * Sort integers by most significant digit.
@@ -345,7 +345,7 @@ The operation can only bec applied to AVL trees and stated as follows. For a giv
 #### Hash Function
 
 1.  Division Method: $h\(k\) = k \mod m$, where m is mentioned above.
-2. Multiplication Method: $h(k) = ((ak)\mod 2^w)(w - r)$, where $k​$ is w-bit. This method can be understood as a division method under binary case, or taking the certain binary bits of the input.
+2. Multiplication Method: $h(k) = ((ak)\mod 2^w)(w - r)$, where $k$ is w-bit. This method can be understood as a division method under binary case, or taking the certain binary bits of the input.
 3. Universal Hashing: $h\(k\) = \(\(ak+b\)\mod p\)\mod m$
 
 ### Table Doubling, Karp-Rabin
@@ -468,7 +468,7 @@ $$
 
 ### Adjacency List
 
-Each vertices has a linked list pointing towards the linked/neighbour/able to reach by a single move vertices. Memory complexity is $$\theta(|V|+|E|)​$$ .
+Each vertices has a linked list pointing towards the linked/neighbour/able to reach by a single move vertices. Memory complexity is $$\theta(|V|+|E|)$$ .
 
 ### BFS
 
@@ -522,7 +522,7 @@ $$
 
 ##### Goal
 
-For a give graph, with vertices $V​$, starting point $s​$, minimize the distance between the starting point and any other vertices to get function $\delta(s,v),\forall v​$. For each $v​$, define a predecessor $\pi[v]​$. If we build an actual model consisting of balls signifying nodes and strings signifying edges. The lengths of the strings signifies weights of the strings. If we want the result of Dijkstra for any vertices in the graph, hold up the starting vertex and count the balls from the top to the bottom. Tensed strings suggest a direct link between the 2 vertex and we hereby get the series of Dijkstra results.
+For a give graph, with vertices $V$, starting point $s$, minimize the distance between the starting point and any other vertices to get function $\delta(s,v),\forall v$. For each $v$, define a predecessor $\pi[v]$. If we build an actual model consisting of balls signifying nodes and strings signifying edges. The lengths of the strings signifies weights of the strings. If we want the result of Dijkstra for any vertices in the graph, hold up the starting vertex and count the balls from the top to the bottom. Tensed strings suggest a direct link between the 2 vertex and we hereby get the series of Dijkstra results.
 
 By this idea of gravity, Dijkstra is introduced. For each vertex in the graph, we find the nearest next vertex like we do in counting balls.
 
@@ -613,7 +613,7 @@ while Q is not null:
 
 #### Bi-directional Search
 
-Run Dijkstra on both direction. Drop the traversed vertices at each step. When some vertex u has been processed both in the forward search and backward search, the process is terminated. First, find a vertex x, having minimum $d_f[x]+d_b[x]$. If x was processed first from both $Q_f$ and $Q_b$, find shortest path using $\Pi_f$ from S to x, then find shortest path using $\Pi_b​$ from t to x, backwardly. 
+Run Dijkstra on both direction. Drop the traversed vertices at each step. When some vertex u has been processed both in the forward search and backward search, the process is terminated. First, find a vertex x, having minimum $d_f[x]+d_b[x]$. If x was processed first from both $Q_f$ and $Q_b$, find shortest path using $\Pi_f$ from S to x, then find shortest path using $\Pi_b$ from t to x, backwardly. 
 
 ## Dynamic Programming \(DP)
 
@@ -710,7 +710,7 @@ badness(i,j)=\begin{cases}
 $$
 
 1. Subproblems. Guess where to start the second line. Once the beginning of the second line is defined, we have the remaining words as a “suffix” of the original list as words[i:]. The number of subproblems is n.
-2. Guesses. Guess where to start the second line. The number of choices is less than or equal to $n-i=O(n)​$, the number of the rest of the words.
+2. Guesses. Guess where to start the second line. The number of choices is less than or equal to $n-i=O(n)$, the number of the rest of the words.
 3. Recurrence. Word i is the last word of the first line. Word j is the last word of the second line, which is the goal of the algorithm. Try for all possible position to find the proper j with least badness.
 
 ```python
@@ -721,7 +721,7 @@ DP(i):
 
 ​	Try for every possible j to minimize the rest of the DP and the badness of the certain j. DP(j) is to determine the justification for the rest of the text. Time per subproblem is $O(n)$.
 
-4. Check topological order. i = n, n-1, …, 0, null. Total time $O(n^2)​$.
+4. Check topological order. i = n, n-1, …, 0, null. Total time $O(n^2)$.
 5. Original problem is DP(null) = 0.
 
 ### Parent Pointers
@@ -744,7 +744,7 @@ Optimal evaluation of $A_i...A_{j-1}$.
 
 #### Guess
 
-The right question to ask is what is the outermost/last multiplication. Namely, find $k​$, for $(A_0...A_{k-1})\times(A_k...A_{j-1})​$. The number of choices is the number of all matrices.
+The right question to ask is what is the outermost/last multiplication. Namely, find $k$, for $(A_0...A_{k-1})\times(A_k...A_{j-1})$. The number of choices is the number of all matrices.
 
 #### Recurrence
 

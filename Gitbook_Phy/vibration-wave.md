@@ -307,9 +307,11 @@ $M^{-1}KA$ also consists of eigenvectors of $S$, sharing the same eigenvalues. I
 $$
 M^{-1}KA\propto A\Rightarrow M^{-1}KA=w^2A
 $$
-where $w$ is some constant, able to be solved.
+where $w$ is some constant, able to be solved. The normal mode frequency can be solved by this eigen problem.
 
 ## Infinite Number of Objects
+
+### Horizontal Displacement
 
 ![1561036716388](assets/1561036716388.png)
 
@@ -351,3 +353,32 @@ Plug $A_j$ in:
 $$
 w^2=w_0^2(-\frac{1}{\beta}+2-\beta)=w_0^2(2-(e^{ika}+e^{-ika}))=w_0^2(1-\cos ka)
 $$
+
+When $k$ is given, $\beta^j=e^{ijka}$:
+$$
+A_j=\frac{1}{2i}(e^{ijka}-e^{-ijka})=\sin jka
+$$
+This is because the linear combination of 2 form of amplitude, plugging in $k,-k$, we have $\beta^j,\beta^{-j}$ . The coefficients are chosen by purpose of showing the presence of $\sin$. The expression shows the shape of the wave by showing the amplitude of each spring on the infinite spring system.
+
+### Vertical Vibration
+
+Consider when the objects move up and down. For the $j$th mass point:
+
+![1561174816061](assets/1561174816061.png)
+
+When assuming $y_j<<a$, we can have the small angle approximation $\theta_1,\theta_2<<1$. Write down the equation of motion:
+$$
+m\ddot x_j=-T\cos\theta_1+T\cos\theta_2,m\ddot y_i=-T\sin\theta_1-T\sin\theta_2
+$$
+Plug in the small angle approximation:
+$$
+m\ddot x_j=0,m\ddot y_j=-T\frac{y_j-y_{j+1}}{a}-T\frac{y_j-y_{j+1}}{a}=\frac{T}{a}(y_{j-1}-2y_j+y_{j+1})
+$$
+where $\theta_1=\tan\theta_1=(y_j-y_{j-1})/a$.
+
+The objects are oscillating in the same frequency and phase:
+$$
+y_j=Re(A_je^{i(wt+\phi)})
+$$
+![1561175316572](assets/1561175316572.png)
+
