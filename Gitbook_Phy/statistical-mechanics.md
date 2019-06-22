@@ -819,6 +819,12 @@ And more:
 $$
 f_s(\vec p_1,\vec q_s,t)=\frac{N!}{(N-s)!}\rho_s(\vec p_1,...,\vec q_s,t)
 $$
+We can define $\rho_s$ as the density function of a single term of the delta function.
+$$
+\rho_s=\int\prod_{i=s+1}^Nd^3p_id^3q_i\rho(\vec p_1,\vec q_1,...,\vec p_s,\vec q_s...,\vec p_N,\vec q_N,t)
+$$
+
+
 For the Hamiltonian in the system, we consider the single particles, pairs of particles , and more.
 $$
 H=\sum_i(\frac{P_i^2}{2m_i}+U(\vec q_i))+\frac{1}{2}\sum_{i\ne j}V(\vec q_i-\vec q_j)+...
@@ -829,17 +835,35 @@ $$
 $$
 Express Hamiltonian:
 $$
-H=\sum_{i=1}^N[\frac{p_i^2}{2m}+U(\vec q_i)]+\frac{1}{2}\sum_{i\ne j}V(\vec q_i-\vec q_j)+...
+H_N=\sum_{i=1}^N[\frac{p_i^2}{2m}+U(\vec q_i)]+\frac{1}{2}\sum_{i\ne j}V(\vec q_i-\vec q_j)+...
 $$
-The Hamiltonian constists of terms associated with one body, 2 bodies and more, which are not so important. For each term, there is the presence of potential energy between the particles. The Hamiltonian can be separated into 3 parts, donated by the integrated particles, unintegrated particles, and the rest. The (un-)integrated is defined by the previous computation about particle density. The integrated are the particles are the ones not counted into the density computation, or referred to as “other particles” except for the ones in the delta function.
+The Hamiltonian constists of terms associated with one body, 2 bodies and more, which are not so important. For each term, there is the presence of potential energy between the particles. The Hamiltonian can be separated into 3 parts, donated by the integrated particles, unintegrated particles, and the rest. The (un-)integrated is defined by the previous computation about particle density. The integrated are the particles are the ones not counted into the density computation, or referred to as “other particles” except for the ones in the delta function. The remaining term shows the interparticle interactions between the 2 sets of particles.
 
 Not integrating:
 $$
-H_{S}=\sum_{m=1}^S[\frac{p_m^2}{2m}+U(\vec q_m)]+\frac{1}{2}\sum_{m\ne n}U(\vec q_m-\vec q_n)
+H_s=\sum_{n=1}^s[\frac{p_n^2}{2m}+U(\vec q_n)]+\frac{1}{2}\sum_{m\ne n}U(\vec q_m-\vec q_n)
 $$
 Integrating:
 $$
-H_{N-S}=\sum_{j=S+1}^N[\frac{p_i^2}{2m}+U(\vec q_j)]+\frac{1}{2}\sum_{j\ne k}V(\vec q_j-\vec q_k)
+H_{N-s}=\sum_{i=s+1}^N[\frac{p_i^2}{2m}+U(\vec q_i)]+\frac{1}{2}\sum_{j\ne k}V(\vec q_j-\vec q_k)
 $$
-The remaining term 
-
+The remaining term:
+$$
+H'=\sum_{n-1}^s\sum_{j=s+1}^NV(\vec q_n-\vec q_j)
+$$
+Now, we can solve for the density function of $s$-particle density.
+$$
+\frac{\partial\rho_s}{\partial t}=\int\prod_{i=s+1}^NdV_i\{H_s+H_{N-s}+H',\rho\}
+$$
+The first term:
+$$
+\int\prod_{i=s+1}^NdV_i\sum_{n=1}^s(-\frac{\partial\rho}{\partial\vec q_n}\frac{\partial H_s}{\partial\vec p_n}+\frac{\partial\rho}{\partial\vec p_n}\frac{\partial H_s}{\partial\vec q_n})=\{H_s,\int\prod_{i=s+1}^NdV_i\rho\}=\{H_s,\rho_s\}
+$$
+The second term should be 0, for the probability density of $N-s$ space is not relavent to the behavior of other particles not within it. We write down the expression to see why. The key step is by integration by part, taking $\rho$ out and take the derivative of the rest of the terms.
+$$
+\int\prod_{i=s+1}^NdV_i\sum_{j=s+1}^N(-\frac{\partial\rho}{\partial\vec q_j}\frac{\partial H_{N-s}}{\partial\vec p_j}+\frac{\partial\rho}{\partial\vec p_j}\frac{\partial H_{N-s}}{\partial\vec q_j})=\int\prod_{i-s+1}^NdV_i\rho(\frac{\partial^2H_{N-s}}{\partial\vec p_j\partial q_j}-\frac{\partial^2H_{N-s}}{\partial\vec q_j\partial\vec p_j})=0
+$$
+The last term is interesting.
+$$
+\int\prod_{i=s+1}^NdV_i(\sum_{n=1}^s\frac{\partial\rho}{\partial\vec q_n}\frac{\partial H'}{\partial\vec p_n}+\sum_{j=s+1}^N\frac{\partial\rho}{\partial\vec p_j}\frac{\partial H'}{\partial\vec q_j}-\sum_{n=1}^s\frac{\partial\rho}{\partial\vec p_n}\frac{\partial H'}{\partial\vec q_n}-\sum_{j=s+1}^N\frac{\partial\rho}{\partial\vec q_j}\frac{\partial H'}{\partial\vec p_j})
+$$

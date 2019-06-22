@@ -379,7 +379,7 @@ Solve for Taylor’s first expansion:
 $$
 f(x)=f(x_k)+f'(x_k)(x-x_k)\Rightarrow x_{k+1}=x_k-\frac{f(x_k)}{f'(x_k)}
 $$
-The solution is the fixed point iteration on:
+sshaThe solution is the fixed point iteration on:
 $$
 g(x)=x-\frac{f(x)}{f'(x)}
 $$
@@ -448,7 +448,7 @@ We cannot apply the extended secant method to make things better, for there is n
 $$
 D_{\vec v}f=Df\times\vec v
 $$
-From another perspective, we can have something like a secant-like approximation:
+From another perspective, we can have something likessha a secant-like approximation:
 $$
 J(\vec x_k-\vec x_{k-1})=f(\vec x_k)-f(\vec x_{k-1}),J=Df(\vec x_k)
 $$
@@ -573,7 +573,7 @@ The separation of interval in this fashion is called the Golden Section Search, 
       2. Reuse previous iteration: $x_1\leftarrow x_0,f_1\leftarrow f_0$.
       3. Generate new sample: $x_0\leftarrow a+(1-\tau)(b-a),f_0\leftarrow f(x_0)$.
 
-##### Gradient Descent
+#### Gradient Descent
 
 The direction of the gradient is where the function increases fastest. Therefore, by treading along the opposite direction, we may find its minimum. The steps are as follows:
 
@@ -612,6 +612,19 @@ Critical point:
 > A critical point is one satisfying constraints that also is a local maximum, minimum or saddle point of $f$ within the feasible set.
 
 KKT condition, see Convex Optimization.
+
+### Gradient Descent
+
+#### Sequential Quadratic Programming (SQP)
+
+$$
+\vec x_{k+1}=\vec x_k+\arg\min_{\vec d}[\frac{1}{2}\vec d^TH_f(\vec x_k)\vec d+\nabla f(\vec x_k\cdot\vec d)]\\s.t.\begin{cases}
+g_i(\vec x_k)+\nabla g_i(\vec x_k)\cdot\vec d=0\\
+h_i(\vec x_k)+\nabla h_i(\vec x_k)\cdot d\ge0
+\end{cases}
+$$
+
+
 
 ## Integration and Differentiation
 
