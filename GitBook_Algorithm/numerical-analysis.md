@@ -508,7 +508,7 @@ Taylor’s expansion in gradient:
 $$
 f(\vec x)=f(\vec x_0)+\nabla f(\vec x_0)(\vec x-\vec x_0)
 $$
-Take $\vec x-\vec x_0=\alpha\nabla f(\vec x_0)$:
+Convex ProgrammingTake $\vec x-\vec x_0=\alpha\nabla f(\vec x_0)$:
 $$
 f(\vec x_0+\alpha\nabla f(\vec x_0))=f(\vec x_0)+\alpha||\nabla f(\vec x_0)||^2
 $$
@@ -613,17 +613,47 @@ Critical point:
 
 KKT condition, see Convex Optimization.
 
-### Gradient Descent
+### Conjugate Gradient
 
-#### Sequential Quadratic Programming (SQP)
+#### Gradient Descent
 
+Compute the search direction:
 $$
-\vec x_{k+1}=\vec x_k+\arg\min_{\vec d}[\frac{1}{2}\vec d^TH_f(\vec x_k)\vec d+\nabla f(\vec x_k\cdot\vec d)]\\s.t.\begin{cases}
-g_i(\vec x_k)+\nabla g_i(\vec x_k)\cdot\vec d=0\\
-h_i(\vec x_k)+\nabla h_i(\vec x_k)\cdot d\ge0
-\end{cases}
+\vec d_k=-\nabla f(\vec x_{k-1})
 $$
+Do line search to find:
+$$
+\vec x_k=\vec x_{k-1}+\alpha_k\vec d_k
+$$
+The line search process is to minimize the target function not wholly.
+$$
+\min_\alpha g(\alpha)=f(\vec x+\alpha\vec d)
+$$
+For linear programming $f(x)=||A\vec x-\vec b||_2^2$:
+$$
+g(\alpha)=\frac{1}{2}\alpha^2\vec d^TA\vec d+\alpha(\vec x^TA\vec d-\vec b^T\vec d)+consts,\alpha^*=\frac{(\vec b^T-x^TA)\vec d}{\vec d^TA\vec d}
+$$
+Plug in $\vec d=\vec b-A\vec x_{k-1}$:
+$$
+\alpha_k=\frac{\vec d_k^T\vec d_k}{\vec d^T_kA\vec d_k},\vec x_k=\vec x_{k-1}+\alpha_k\vec d_k
+$$
+The convergence is shown by the convergence criterion:
+$$
+\frac{f(\vec x_k)-f(\vec x^*)}{f(\vec x_{k-1})-f(\vec x^*)}\le1-\frac{1}{\bold{cond}A}
+$$
+The conditioning affects speed and quality. However it is, the conditional number of the matrix is always strictly greater than or equal to 1, which gives unconditional convergence. 
 
+The simple strategy has 2 main flaws:
+
+- The number of iteration may be larger than some other strategy, such as Gaussian elimination.
+- The direction of the negative gradient does not always points towards the optimal point, causing zig-zags and repeated work.
+
+#### Conjugate
+
+Subtract $\vec x$ by the optimum:
+$$
+f(\vec x)=\frac{1}{2}(\vec x-\vec x^*)^TA(\vec x-\vec x^*)+const=\frac{1}{2}(\vec x-\vec x^*)^TA(\vec x-\vec x^*)-\frac{1}{2}(\vec x^*)^T\vec b+const=\frac{1}{2}(\vec x-\vec x^*)^TA(\vec x-\vec x^*)+const
+$$
 
 
 ## Integration and Differentiation

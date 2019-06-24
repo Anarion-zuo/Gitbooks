@@ -386,8 +386,85 @@ The eigenvectors of $M^{-1}K$ are given by $M^{-1}KA$, for $A$ is the eigenvecto
 $$
 w^2A_j=\frac{T}{ma}(-A_{j-1}+2A_j-A_{j+1})=\frac{T}{ma}(-e^{-ika}+2-e^{ika}),w^2=\frac{2T}{ma}(1-\cos ka)
 $$
-Rewrite the expression of $w^2$:
+where $k$ is some unit related to length. Rewrite the expression of $w^2$:
 $$
 w^2=2w_0^2(1-\cos ka)=4w_0^2\sin^2\frac{ka}{2},w_0^2=\frac{T}{ma}
 $$
 Thus, $w$ is a function of $k$.
+
+### Finite System
+
+Suppose a finite system is a part of a infinite system, from spring $0$ to spring $N$. The node between the springs are from $0$ to $N+1$.
+
+![1561336224957](assets/1561336224957.png)
+
+The boundary condition is that:
+$$
+y_0=0,y_{N+1}=0
+$$
+Since:
+$$
+w(k)=w(-k)
+$$
+We guess that the solution is:
+$$
+y_i=Re(e^{i(wt+\phi)}(\alpha e^{ijka}+\beta e^{-ijka}))
+$$
+Plug in the boundary and solve:
+$$
+\sin(N+1)ka=0,k=\frac{n\pi}{N+1},n=1,2,...,N
+$$
+We only have $N$ normal modes.
+
+### Continuous
+
+In discrete systems:
+$$
+w^2A_j=\frac{T}{ma}(-A_{j-1}+2A_j-A_{j+1})
+$$
+Write $A$ to be a function of position:
+$$
+w^2A(x)=\frac{T}{ma}(-A(x-a)+2A(x)-A(x+a))
+$$
+Take the limit that $a$ goes to $0$:
+$$
+w^2A(x)=-\frac{T}{ma}A''(x)a^2
+$$
+Suppose the linear density $\rho_L=\frac{m}{a}$:
+$$
+w^2A=-\frac{T}{\rho_L}A''(x)=-\frac{T}{\rho_L}\frac{\partial^2A}{\partial x^2}=-\frac{\partial^2A}{\partial t^2}
+$$
+Define:
+$$
+v_g^2=\frac{T}{\rho_L},v_g^2\frac{\partial^2A}{\partial x^2}=\frac{\partial^2A}{\partial t^2}
+$$
+
+### Wave Equation
+
+Separate the function of wave into 2 parts, governing shape and time evolution:
+$$
+\psi(x,t)=A(x)B(t)
+$$
+Plug into the wave equation:
+$$
+\frac{1}{v_p^2B(t)}\frac{\partial^2B(t)}{\partial t^2}=\frac{1}{A(x)}\frac{\partial^2A(x)}{\partial x^2}=-k_m^2
+$$
+The sides depends on either time or position separately. The behavior of the function does not change when holding either time or position fixed. Therefore, it is valid to have a constant on the right most side.
+
+Express $A,B$ in $k_m$:
+$$
+\frac{\partial^2B(t)}{\partial t^2}=-k_m^2v_p^2B(t),\frac{\partial^2A(x)}{\partial x^2}=-k_m^2A(x)
+$$
+The frequency of the 2 equations are:
+$$
+w_m=v_pk_m,k_m=k_m
+$$
+Express solution:
+$$
+B(t)=B_m\sin(w_mt+\beta_m),A(x)=C_m\sin(k_mx+\alpha_m)
+$$
+Put them together:
+$$
+\psi_m(x,t)=A_m\sin(w_mt+\beta_m)\sin(k_mt+\alpha_m),A_m=B_mC_m
+$$
+The constants in the equation are determined by the initial condition.
