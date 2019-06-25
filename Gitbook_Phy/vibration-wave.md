@@ -551,7 +551,7 @@ $$
 $$
 Hence, for any arbitrary shape $f(\tau)$, we can always take it for a superposition of 2 waves traveling in counter direction. If a wave is created in a string, it would soon decompose it itself into 2 separate waves, bouncing back and forth accordingly, each with a half of the original amplitude.
 
-#### 
+#### Progressing
 
 ![1561455683795](assets/1561455683795.png)
 
@@ -584,4 +584,71 @@ $$
 Introduce new constants:
 $$
 f_r=Rf_i,f_t=\Tau f_i
+$$
+The coefficients determines the reflection and translation behavior.
+
+When the second string is a wall, unable to be shaken. We have:
+$$
+\rho_L=\infty\Rightarrow v_2=0,R=-1,\Tau=0
+$$
+All energy goes back to the original string.
+
+When the second string is a frictionless and massless ring on a rod, there is no energy loss in the connecting point. The system acts as if no spring is there and gives a symmetric reflection.
+$$
+\rho_L=0\Rightarrow v_2\rightarrow\infty,R=1,\Tau=2
+$$
+
+### Sound Wave
+
+Suppose we have a very long spring. The stretching and squeezing of the spring can form a kind of wave, which is similar to the form of sound wave. The form is called the longitudinal wave.
+
+![1561461566537](assets/1561461566537.png)
+
+#### Basic Derivation
+
+Suppose there is a tube with some air inside.
+
+![1561461713185](assets/1561461713185.png)
+
+At time $t$:
+
+![1561470904078](assets/1561470904078.png)
+
+Change in volume:
+$$
+dV=A(\psi(x+dx,t)-\psi(x,t))=A\frac{\partial\psi}{\partial x}dx
+$$
+Change in pressure:
+$$
+dp=-\psi_p(x+dx,t)+\psi_p(x,t)=-\frac{\partial\psi_p}{\partial x}dx
+$$
+$\psi$ is the measure of wave in distance, and $\psi_p$ is the measure of wave in pressure. Assume that $\psi_p<<p_0,dV<<V_0$.
+
+Assume this is a adiabatic process:
+$$
+p_0V_0^\gamma=C,(p_0+\psi_p)(V_0+dV)^\gamma=C
+$$
+Take the ratio and expand:
+$$
+C=p_0V_0^\gamma+\gamma dVV_0^{\gamma-1}p_0+\psi_pV_0^\gamma
+$$
+Further:
+$$
+\psi_p=-\frac{\gamma p_0}{V_0}dV
+$$
+Plug in $dV$:
+$$
+\psi_p=-\gamma p_0\frac{\partial\psi}{\partial x}
+$$
+Express pressure difference:
+$$
+-dp=A\frac{\partial\psi_p}{\partial x}dx
+$$
+Express mass:
+$$
+dm=\rho Adx
+$$
+Plug all in:
+$$
+\rho\ddot\psi=-\frac{\partial\psi_p}{\partial x}=-\gamma p_0\frac{\partial^2\psi}{\partial x^2},v_p^2=\frac{\gamma p_0}{\rho}
 $$
