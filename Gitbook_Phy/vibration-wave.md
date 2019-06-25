@@ -436,7 +436,7 @@ w^2A=-\frac{T}{\rho_L}A''(x)=-\frac{T}{\rho_L}\frac{\partial^2A}{\partial x^2}=-
 $$
 Define:
 $$
-v_g^2=\frac{T}{\rho_L},v_g^2\frac{\partial^2A}{\partial x^2}=\frac{\partial^2A}{\partial t^2}
+v_p^2=\frac{T}{\rho_L},v_p^2\frac{\partial^2A}{\partial x^2}=\frac{\partial^2A}{\partial t^2}
 $$
 
 ### Wave Equation
@@ -467,4 +467,121 @@ Put them together:
 $$
 \psi_m(x,t)=A_m\sin(w_mt+\beta_m)\sin(k_mt+\alpha_m),A_m=B_mC_m
 $$
-The constants in the equation are determined by the initial condition.
+The constants concerning wave in the equation are determined by the boundary condition, while the vibration ones are determined by initial condition.
+
+For an example of a string connected to a wall and a massless ring on a rod.
+
+![1561447971584](assets/1561447971584.png)
+
+The boundary conditions are:
+$$
+x=0,\psi(0,t)=0\\
+x=L,\frac{\partial\psi}{\partial x}(L,t)=0
+$$
+The condition simply says that the starting position does not move according to time and the ending point does not move horizontally. Plug in the conditions and we have:
+$$
+\cos(k_mL)=0,k_m=\frac{2m-1}{2L}\pi
+$$
+The $m$ subscript is useful now, when we cannot choose $k_m$ arbitrarily. The $m$ signifies the index of the normal modes. Once the wave length is determined, the angular frequency is determined also.
+$$
+w_m=v_pk_m
+$$
+The ultimate behavior of the wave is the summation of all normal modes:
+$$
+\psi(x,t)=\sum_{m=1}^\infty A_m\sin(w_mt+\beta_m)\sin(k_mx+\alpha_m)
+$$
+The amplitude of the normal modes are given by the orthogonality of the wave function.
+$$
+A_m=\frac{2}{L}\int_0^L\psi(x,0)\sin(k_mx)dx
+$$
+The orthogonality says:
+$$
+\int_0^Ldx\sin(k_mx)\sin(k_nx)=\begin{cases}
+L/2&m=n\\
+0&m\ne n
+\end{cases}
+$$
+The terms that are not $m$ cancel out by themselves.
+
+### Traveling Wave
+
+The previous solution assumes that $\psi=A(x)B(t)$, such that time and position are governed by different functions. By starting from that form, we would ultimately solve for the normal modes of the whole system.
+
+Here, we give another form of solution, $\psi=f(x-v_pt)$, such that the wave moves forward. First, we define $\tau=x-v_pt$. The derivative of the wave function is:
+$$
+\frac{\partial f}{\partial x}=\frac{\partial f}{\partial\tau}\frac{\partial\tau}{\partial x}=f'(\tau),\frac{\partial^2f}{\partial x^2}=f''(\tau),\frac{\partial f}{\partial t}=-v_pf'(\tau),\frac{\partial^2f}{\partial x^2}=f''(\tau),\frac{\partial^2 f}{\partial t^2}=-v_pf''(\tau)
+$$
+Plug the derivatives into the wave equation, and the equation holds. Such form of function fits the wave equation.
+
+The function have another form, similar to this one, such that: $f(kx\pm wt)$.
+
+As a function of time, the shape of the wave remains and the function moves forward with the fixed shape. The direction of the propagation is determined by the sign of the time term. There is no essential difference between the 2 forms of solution. For this particular form, the particles on the system is also moving up and down as before, so nicely that it seems like a moving shape.
+
+When 2 waves from opposite directions and opposite shape collide into each other, the latter behavior would no be so easy to interpret.
+
+![1561453501807](assets/1561453501807.png)
+
+If we admit that they would pass by nicely and obtain their shape after the collision, the conservation of energy is satisfied. The way of remembering the shape is that although the particles seem to have 0 displacement at collision, they do have nonzero velocity, taking them to further motions, instead of sitting still.
+
+#### Energy
+
+Consider a tiny proportion of the string:
+$$
+dm=\rho_Ldx
+$$
+Express kinetic energy:
+$$
+\frac{1}{2}\int(dm)v^2,v=\frac{\partial\psi}{\partial t}
+$$
+Express potential energy:
+$$
+dW=T(\sqrt{dx^2+d\psi^2}-dx)=T\frac{1}{2}(\frac{d\psi}{dx})^2dx
+$$
+![1561454141488](assets/1561454141488.png)
+
+#### Decomposition
+
+Suppose:
+$$
+g(x,t)=f(x+v_pt)+f(x-v_pt)
+$$
+There is:
+$$
+\frac{\partial g}{\partial t}=0
+$$
+Hence, for any arbitrary shape $f(\tau)$, we can always take it for a superposition of 2 waves traveling in counter direction. If a wave is created in a string, it would soon decompose it itself into 2 separate waves, bouncing back and forth accordingly, each with a half of the original amplitude.
+
+#### 
+
+![1561455683795](assets/1561455683795.png)
+
+Consider a wave entering the part with larger density. The speed of the wave is going to change, of cause.
+
+Since the string is continuous:
+$$
+y_L(0^-)=y_R(0^+),\frac{\partial y_L}{\partial x}|_{x=0^-}=\frac{\partial y_R}{\partial x}|_{x=0^+}
+$$
+This is the boundary conditions.
+
+We can make an observation and see that there is going to be a backward reflection and a forward translation.
+
+![1561456236168](assets/1561456236168.png)
+$$
+y_L=f_i+f_r,y_R=f_t
+$$
+Plug into the boundary conditions:
+$$
+f_i(wt)+f_r(wt)=f_t(wt),-k_1f'_i(wt)+k_1f_r'(wt)=-k_2f_t(wt)
+$$
+Apply an integration over the second equation:
+$$
+v_2(f_i(wt)-f_r(wt))=v_1f_t(wt)
+$$
+Represent the rest with $f_i$:
+$$
+f_r(wt)=\frac{v_2-v_1}{v_1+v_2}f_i(wt),f_t(wt)=\frac{2v_2}{v_1+v_2}f_i(wt)
+$$
+Introduce new constants:
+$$
+f_r=Rf_i,f_t=\Tau f_i
+$$
