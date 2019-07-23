@@ -123,7 +123,7 @@ $$
 
 ### Probability Explanation of Regular
 
-The purpose of regular is to prevent the weights from getting too big. Suppose the weights are normally distributed, $p(w_j)=\frac{1}{\sqrt{2\pi}\tau}\exp{(-\frac{w_j^2}{2\tau^2})}​$. According to Bayes’s theorem, there is:
+The purpose of regular is to prevent the weights from getting too big. Suppose the weights are normally distributed, $p(w_j)=\frac{1}{\sqrt{2\pi}\tau}\exp{(-\frac{w_j^2}{2\tau^2})}$. According to Bayes’s theorem, there is:
 $$
 p(W|D)p(D)=p(W)p(D|W),p(W|D)\propto p(W)p(D|W)
 $$
@@ -193,7 +193,7 @@ $$
 a=\lim_{x\rightarrow x_0^-}\frac{f(x)-f(x_0)}{x-x_0},b=\lim_{x\rightarrow x_0^+}\frac{f(x)-f(x_0)}{x-x_0},\partial f\in[a,b]
 $$
 
-where $$\partial f​$$ is the subderivative. The necessary and insufficient condition of a point is critical point is that 0 is in the interval. Hence, some function containing absolute notation can be applied to the gradient descend method.
+where $$\partial f$$ is the subderivative. The necessary and insufficient condition of a point is critical point is that 0 is in the interval. Hence, some function containing absolute notation can be applied to the gradient descend method.
 
 ### Axis Descend Method
 

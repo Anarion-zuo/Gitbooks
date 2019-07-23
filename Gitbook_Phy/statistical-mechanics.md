@@ -180,8 +180,10 @@ This defines the ratio, therefore still requires a reference state.
 
 For any engine:
 $$
-\eta=1-\frac{Q_C}{Q_H}\le\eta_{CE}(T_H,T_C)=1-\frac{T_C}{T_H}\Rightarrow \frac{Q_H}{T_H}+\frac{-Q_C}{T_C}\le0#### Clausius’ Theorem
+\eta=1-\frac{Q_C}{Q_H}\le\eta_{CE}(T_H,T_C)=1-\frac{T_C}{T_H}\Rightarrow \frac{Q_H}{T_H}+\frac{-Q_C}{T_C}\le0
 $$
+
+#### Clausius’ Theorem
 
 From the engine’s perspective, $-Q_C$ and $Q_H$ are the sum of heat flowing throw it, which is a system. The state of a Carnot engine as a system does not change. We may suppose that the state does change in a slight way and comes back in an instant because of the heat flowing through it. We may expand the idea of such and claim that for any system, the sum of the ratio between the heat in unit time and the corresponding temperature is strictly less than or equal to 0.
 $$
